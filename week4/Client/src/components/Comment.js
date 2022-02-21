@@ -10,7 +10,6 @@ export default function Comments(props) {
             props.commentThread.map(e => {
                 return(
                     <div>
-                        <img src={e.userProfImg} alt={`${e.userName}'s profile pic`}></img>
                         <h3>{e.userName}</h3>
                         <h3>{e.comment}</h3>
                     </div>

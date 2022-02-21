@@ -6,7 +6,6 @@ export default function OriginalPost(props) {
         <div>
             <div>
                 <div>
-                    <img src={props.originalPoster.profImg} alt={`${props.originalPoster.userName}'s post`}></img>
                     <h2>{props.originalPoster.userName}</h2>
                 </div>
                 <div>

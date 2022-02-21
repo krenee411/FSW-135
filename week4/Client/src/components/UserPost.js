@@ -24,7 +24,7 @@ export default function ListUserPosts(props) {
                                 props.getOriginalPoster(e.userID)
                                 props.setOriginalPost({title: e.title, description: e.description})
                             }}>
-                                <Link to="/comments" style={{textDecoration: 'none', color: 'black'}}>Comments</Link>
+                                <Link to="/comments">Comments</Link>
                             </button>
                         </div>
                         <div>

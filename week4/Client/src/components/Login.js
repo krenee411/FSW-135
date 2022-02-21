@@ -8,7 +8,7 @@ export default function SignUp(props) {
                 <input type="text" id="regUser" placeholder="Username"></input>
                 <input type="text" id="regPass" placeholder="Password"></input>
                 <button onClick={() => props.userSignup()}>
-                    <Link to="/">Sign Up</Link>
+                    <Link to="/">Log In</Link>
                 </button>
             </div>
         </div>

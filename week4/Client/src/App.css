@@ -31,6 +31,11 @@ body{
     display: flex;
     justify-content: center;
 }
+#SignUpForm{
+    display: flex;
+    flex-direction: column;
+}
+
 #LoginDiv{
     display: flex;
     justify-content: center;

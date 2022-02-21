@@ -19,7 +19,6 @@ export default function Home(props) {
                 return(
                     <div>
                         <div>
-                            <img src={e.userProfImg} alt={`${e.userName}'s post`}></img>
                             <h3>{e.userName}</h3>
                         </div>
                         <div>
@@ -32,7 +31,7 @@ export default function Home(props) {
                                 props.getOriginalPoster(e.userID)
                                 props.setOriginalPost({title: e.title, description: e.description})
                             }}>
-                                <Link to="/comments" style={{textDecoration: 'none', color: 'black'}}>Comments</Link>
+                                <Link to="/comments">Comments</Link>
                             </button>
                         </div>
                         <div>
