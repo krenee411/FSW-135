@@ -1,0 +1,48 @@
+#NavBar{
+    display:flex;
+    justify-content: right;
+    list-style-type: none;
+    font-size: 25px;
+    font-family:fantasy;
+    padding: 10px;
+    margin: 0px;
+    color:blanchedalmond
+}
+.link:hover{
+    padding:2px;
+    color: blueviolet;
+}
+#Head1{
+    display:flex;
+    justify-content: center;
+    color: red;
+    padding-top: 100px;
+    
+}
+#Head2{
+    display:flex;
+    justify-content: center;
+    color:red;
+}
+body{
+    background-image: url(https://bryanuniversity.instructure.com/courses/12166/files/953254/preview);
+}
+#signUpDiv{
+    display: flex;
+    justify-content: center;
+}
+#LoginDiv{
+    display: flex;
+    justify-content: center;
+
+}
+#LoginHeader{
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+#SignUpHeader{
+    display: flex;
+    justify-content: center;
+    padding-top: 100px; 
+}
