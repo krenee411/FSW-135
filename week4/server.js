@@ -3,40 +3,31 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const expressJwt = require('express-jwt');
+//const jwt = require('jwt-express');
 require('dotenv').config();
 
-
-const PORT = 9000;
-
-//Middleware
 app.use(express.json());
 app.use(morgan('dev'));
+//app.use(jwt.init('secret'))
 
-// Connect to MongoDB
+
+
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://localhost:27017/issueSchema');
+  await mongoose.connect('mongodb://localhost:27017/ClimateSchema');
   console.log("Connected to MongoDB");
 }
 
 //Routes
-app.use('/auth', require('./routes/authRouter.js'));
-app.use('/api', expressJwt({secret: process.env.SECRET, algorithms: ['HS256']}));
-app.use('/api/issues', require('./routes/issueRouter.js'));
-app.use('/api/comments', require('./routes/commentRouter.js'));
+app.use('/auth', require('./routes/authRouter')); //??
+//app.use('/api', require({secret: process.env.SECRET, algorithms: ['RS256']})); //??
+app.use('/issueSchema', require('./routes/issueRouter'));
+app.use('/commentSchema', require('./routes/commentRouter'));
+app.use('/userSchema', require('./routes/userRouter'))
 
-//Error Handling
-app.use((err, req, res, next) => {
-  console.log(err);
-  if (err.name === "Unauthorized Error") {
-    res.status(err.status);
-  }
-  return res.send({errMsg: err.message});
-})
 
-//Listener
-app.listen(PORT, () => {
-  console.log(`Server is running on port: ${PORT}`);
+
+app.listen(9000, () => {
+  console.log(`The App is listening in port 9000`);
 })

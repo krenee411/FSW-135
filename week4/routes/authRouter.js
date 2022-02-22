@@ -4,6 +4,8 @@ const User = require('../models/user.js');
 const jwt = require('jsonwebtoken');
 
 authRouter
+
+    //get all
     .get('/', (req, res, next) => {
         User.find((err, users) => {
             if (err) {
@@ -12,28 +14,9 @@ authRouter
             }
             res.status(200).send(users);
         })
-    }) //DEV TEST GET ALL
-
-    .delete('/:userID', (req, res, next) => {
-        User.findOneAndDelete({_id: req.params.userID}, (err, deleted) => {
-            if (err) {
-                res.status(500);
-                return next(err);
-            }
-            res.status(200).send('Item successfully deleted')
-        })
-    }) //DEV TEST DELETE ONE
-
-    .get('/search/user', (req, res, next) => {
-        User.findOne({_id: req.query._id}, (err, user) => {
-            if (err) {
-                res.status(500);
-                return next(err);
-            }
-            res.status(200).send(user);
-        })
-    }) //GET query user
-
+    })
+    
+    //signup
     .post('/signup', (req, res, next) => {
         User.findOne({userName: req.body.userName.toLowerCase()}, (err, user) => {
             if (err) {
@@ -54,8 +37,9 @@ authRouter
                 return res.status(201).send({token, user: savedUser})
             })
         })
-    }) //signup
+    }) 
 
+    //login
     .post('/login', (req, res, next) => {
         User.findOne({userName: req.body.userName.toLowerCase()}, (err, user) => {
             if (err) {
@@ -69,6 +53,17 @@ authRouter
             const token = jwt.sign(user.toObject(), process.env.SECRET);
             return res.status(200).send({token, user});
         })
-    }) //login
+    })
+
+    .delete('/:userID', (req, res, next) => {
+        User.findOneAndDelete({_id: req.params.userID}, (err, deleted) => {
+            if (err) {
+                res.status(500);
+                return next(err);
+            }
+            res.status(200).send('Item successfully deleted')
+        })
+    }) 
+
 
 module.exports = authRouter;

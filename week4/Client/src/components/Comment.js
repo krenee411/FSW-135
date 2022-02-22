@@ -1,20 +1,11 @@
 
-export default function Comments(props) {
-    if (props.commentThread.errMsg) {
-        return(
-            <h4>No Commemts Yet</h4>
-        );
-    }
-    else if (!props.commentThread.errMsg) {
-        return(
-            props.commentThread.map(e => {
+export default function Comments() {
                 return(
                     <div>
-                        <h3>{e.userName}</h3>
-                        <h3>{e.comment}</h3>
+                        <input
+                        type="text"
+                        id="comment"
+                        placeholder="enter comment here"></input>
                     </div>
                 );
-            })
-        )
-    }
-}
+            }
