@@ -51,3 +51,7 @@ body{
     justify-content: center;
     padding-top: 100px; 
 }
+#commentSection{
+    display: flex;
+    justify-content: center;
+}

@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 
-export default function SignUp(props) {
+export default function SignUp() {
+
+    //do i need state to store a new user?
     return(
         <div>
             <h1 id="SignUpHeader">Sign Up</h1>
@@ -12,8 +14,8 @@ export default function SignUp(props) {
                
                     <input type="text" id="NewUser" placeholder="Username"></input>
                     <input type="text" id="NewPass" placeholder="Password"></input>
-                    <button onClick={() => props.userSignup()}>
-                            <Link to="/">Sign Up</Link>
+                    <button>
+                            <Link to="/Profile">Sign Up</Link>
                         </button>
                 </form>
             </div>
