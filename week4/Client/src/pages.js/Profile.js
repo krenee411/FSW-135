@@ -1,27 +1,16 @@
-import axios from 'axios';
-import { useState } from 'react';
+import React, { useContext } from 'react'
+import IssueForm from '../components/IssueForm'
+import { UserContext } from '../Context/userProvider'
 
 export default function Profile(){
 
-    const [commentArray, setCommentArray]= usestate([])
+  const { user: {username} } = useContext(UserContext)
 
-    const getComments = () => {
-        axios.get('http://localhost:9000/commentSchema')
-        .then(res => setCommentArray(res.data))
-        .catch(err => console.log(err))
-    }
-
-    const addData = (newComment) => {
-        axios.post('/commentArray', newComment)
-        .then(res => {
-            setCommentArray(comment => [...comment, res.data])
-        })
-    }
-
-
-    return(
-        <div>
-
-        </div>
-    )
+  return (
+    <div className="profile">
+      <h1>Welcome @{username}!</h1>
+      <h3>Add A Todo</h3>
+      <IssueForm addIssue={addIssue}/>
+    </div>
+  )
 }

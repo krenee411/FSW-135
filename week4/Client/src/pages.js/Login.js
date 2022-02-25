@@ -12,18 +12,18 @@ export default function Login() {
         userPassword = localStorage.setUserPassword('userPassword', userPassword)
     }
 
-    function fetchToken(){
-        if (token) {
-            fetch('', { //what api goes here?? where does this token come from?
-              method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                }
-            })
-        }
-    }
+    // function fetchToken(){
+    //     if (token) {
+    //         fetch('', { //what api goes here?? where does this token come from?
+    //           method: 'GET',
+    //             headers: {
+    //                 'Accept': 'application/json',
+    //                 'Content-Type': 'application/json',
+    //                 'Authorization': `Bearer ${token}`
+    //             }
+    //         })
+    //     }
+    // }
 
     return(
         <div>
